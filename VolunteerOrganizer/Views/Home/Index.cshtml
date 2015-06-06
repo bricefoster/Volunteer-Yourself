@@ -1,0 +1,110 @@
+﻿@model List<VolunteerOrganizer.Data.Model.Organization>
+
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+        <div class="navbar-inner">
+            <div id="button1">@Html.ActionLink("Home", "Index", "Home")</div>
+            @using Microsoft.AspNet.Identity
+            @using System.Security.Claims
+            @if (Request.IsAuthenticated)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div>
+                        <div id="button2">
+                            @Html.ActionLink("Scheduled Events", "GetUserEvents", "Volunteer")
+                        </div>
+                        <div id="button3"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div id="button2">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                <div id="button3">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+            }
+        </div>
+    </div>
+   
+</div>
+<div id="title">
+    <h1>Volunteer Yourself</h1>
+</div>
+<div id="part2">
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="http://www.kaikarrel.com/wp/wp-content/uploads/2015/03/help.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h3>Change lives</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://www.kaikarrel.com/wp/wp-content/uploads/2015/02/self-love.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h3>Love</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://i.imgur.com/6o1NhXJ.jpg" alt="...">
+                <div class="carousel-caption">
+                    <h3>Be the difference you what to see in the world</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="http://hadnoclue.files.wordpress.com/2012/10/door12.jpg?w=1200" alt="...">
+                <div class="carousel-caption">
+                    <h3>Open doors of opportunity</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div> <!-- Carousel -->
+
+    <br />
+
+
+    <div class="row-fluid">
+
+
+        <div class="well">
+            <table class="table table-bordered table-striped">
+
+                <tbody>
+                    @foreach (var org in Model)
+                    {
+                        <tr>
+                            <td><strong>@org.OrganizationName</strong></td>
+                            <td><img src="@org.OrganizationPicture" class="img img-thumbnail" width="100" height="100" /></td>
+                            <td>@org.OrganizationAbout</td>
+                            <td><a href="/Event/EventHome/@org.OrganizationId" class="btn btn-primary">Events</a></td>
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>

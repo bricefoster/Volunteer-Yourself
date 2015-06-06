@@ -1,0 +1,89 @@
+﻿
+.glyphicon.glyphicon-info-sign {
+    font-size: 30px;
+    text-align: center;
+}
+
+#myNav {
+    
+}
+
+#button1 {
+    height: 50px;
+    width: 31.3%;
+    float: left;
+    background-color: #e3493b;
+    
+    padding: 10px;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 1%;
+    text-align: center;
+    font-size: 20px;
+}
+
+#button2 {
+    height: 50px;
+    width: 31.3%;
+    float: left;
+    background-color: #eeba4c;
+    
+    padding: 10px;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 1%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+#button3 {
+    height: 50px;
+    width: 31.3%;
+    float: left;
+    background-color: #3a3a3c;
+    
+    padding: 10px;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 1%;
+    text-align: center;
+     margin-right: 0;
+     font-size: 20px;
+}
+
+#button4 {
+    height: 50px;
+    width: 31.3%;
+    float: left;
+    background-color: #3a3a3c;
+    
+    padding: 15px;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 1%;
+    text-align: center;
+     margin-right: 0;
+     font-size: 20px;
+}
+
+#part2{
+    padding-top: 50px;
+}
+
+#myOrg{
+
+    padding-top: 80px;
+}
+
+#title h1 {
+ 
+    text-align: center;
+    font-size: 70px;
+    color: black;
+     padding-top: 80px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+

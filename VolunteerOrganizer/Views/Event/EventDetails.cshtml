@@ -1,0 +1,45 @@
+﻿@model List<VolunteerOrganizer.Data.Model.Event>
+
+<div class="container">
+    <div class="well">
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Contact Person</th>
+                    <th>Contact Email</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th>Country</th>
+                    <th>Additional Info</th>
+                    <th>Previous Page</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ContactPerson</td>
+                        <td>@item.ContactEmail</td>
+                        <td>@item.Street</td>
+                        <td>@item.City</td>
+                        <td>@item.State</td>
+                        <td>@item.ZipCode</td>
+                        <td>@item.Country</td>
+                        <td>@item.Info</td>
+                        <td><a href="/Event/EventHome/@item.OrganizationId" class="btn btn-primary">Previous Page</a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+    <div>
+
+
+
+
+    </div>

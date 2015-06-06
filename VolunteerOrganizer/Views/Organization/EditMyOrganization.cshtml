@@ -1,0 +1,83 @@
+﻿@model VolunteerOrganizer.Data.Model.Organization
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+        <div class="navbar-inner">
+            <div id="button1">@Html.ActionLink("Home", "OrganizationHome", "Organization")</div>
+            @using Microsoft.AspNet.Identity
+            @using System.Security.Claims
+            @if (Request.IsAuthenticated)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div>
+                        <div id="button2">
+                          
+                        </div>
+                        <div id="button3"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div id="button2">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                <div id="button3">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+<h2 id="myOrg">Edit Organization</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Model.OrganizationName</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OrganizationId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrganizationName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrganizationName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OrganizationName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrganizationPicture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrganizationPicture, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OrganizationPicture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrganizationAbout, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OrganizationAbout, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OrganizationAbout, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

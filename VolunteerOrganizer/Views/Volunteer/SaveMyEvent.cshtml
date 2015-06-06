@@ -1,0 +1,37 @@
+﻿@model VolunteerOrganizer.Data.Model.Event
+
+<h3>Please, confirm that you are volunteering for the @Model.EventName event.</h3>
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-group">
+
+        @Html.HiddenFor(model => model.EventId)
+        @Html.HiddenFor(model => model.EventName)
+        @Html.HiddenFor(model => model.About)
+        @Html.HiddenFor(model => model.Date)
+        @Html.HiddenFor(model => model.StartTime)
+        @Html.HiddenFor(model => model.EndTime)
+        @Html.HiddenFor(model => model.Street)
+        @Html.HiddenFor(model => model.City)
+        @Html.HiddenFor(model => model.State)
+        @Html.HiddenFor(model => model.ZipCode)
+        @Html.HiddenFor(model => model.Country)
+        @Html.HiddenFor(model => model.ContactPerson)
+        @Html.HiddenFor(model => model.ContactNumber)
+        @Html.HiddenFor(model => model.ContactEmail)
+        @Html.HiddenFor(model => model.Info)
+        @Html.HiddenFor(model => model.OrganizationId)
+        @Html.HiddenFor(model => model.user.FirstName)
+        @Html.HiddenFor(model => model.user.LastName)
+        @Html.HiddenFor(model => model.user.ContactNumber)
+        @Html.HiddenFor(model => model.OrganizationId)
+
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Confirm" class="btn btn-info" />
+        <a href="/" class="btn btn-default">Cancel</a>
+    </div>
+}

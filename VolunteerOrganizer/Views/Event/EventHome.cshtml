@@ -1,0 +1,68 @@
+﻿@model List<VolunteerOrganizer.Data.Model.Event>
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+        <div class="navbar-inner">
+            <div id="button1">@Html.ActionLink("Home", "Index", "Home")</div>
+            @using Microsoft.AspNet.Identity
+            @using System.Security.Claims
+            @if (Request.IsAuthenticated)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div>
+                        <div id="button2">
+                            @Html.ActionLink("Scheduled Events", "GetUserEvents", "Volunteer")
+                        </div>
+                        <div id="button3"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div id="button2">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                <div id="button3">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="myOrg">
+    <div class="well">
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>About</th>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Info</th>
+                    <th>Volunteer</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.EventName</td>
+                        <td>@item.About</td>
+                        <td>@item.Date</td>
+                        <td>@item.StartTime</td>
+                        <td>@item.EndTime</td>
+                        <td><a href="/Event/EventDetails/@item.OrganizationId"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+                        <td><a href="/Volunteer/SaveMyEvent/@item.EventId" class="btn btn-info">Volunteer</a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

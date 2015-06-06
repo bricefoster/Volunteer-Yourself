@@ -1,0 +1,69 @@
+﻿@model List<VolunteerOrganizer.Data.Model.Organization>
+
+
+    <div>
+        <div class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+            <div class="navbar-inner">
+                <div id="button1">@Html.ActionLink("Home", "OrganizationHome", "Organization")</div>
+                @using Microsoft.AspNet.Identity
+                @using System.Security.Claims
+                @if (Request.IsAuthenticated)
+                {
+                    var identity = (ClaimsIdentity)User.Identity;
+                    var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div>
+                            <div id="button2">
+                                @Html.ActionLink("Hello " + name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            </div>
+                            <div id="button3"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div id="button2">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                    <div id="button3">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+                }
+            </div>
+        </div>
+    </div>
+
+  
+        
+ 
+ <div id="myOrg">
+    <div class="well">
+        <table class="table table-bordered table-striped">
+            <thead>
+
+                <tr>
+                    <th>Organization Name</th>
+                    <th>Organization Picture</th>
+                    <th>Organization About</th>
+                    <th>Events</th>
+                    <th>Add Event</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var org in Model)
+                {
+                    <tr>
+                        <td>@org.OrganizationName</td>
+                        <td><img src="@org.OrganizationPicture" class="img img-thumbnail" width="100" height="100" /></td>
+                        <td>@org.OrganizationAbout</td>
+                        <td><a href="/Event/ManageEvents/@org.OrganizationId" class="btn btn-info">Events</a></td>
+                        <td><a href="/Event/AddEvent/@org.OrganizationId" class="btn btn-success">Add Event</a></td>
+                        <td><a href="/Organization/EditMyOrganization/@org.OrganizationId" class="btn btn-primary">Edit</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

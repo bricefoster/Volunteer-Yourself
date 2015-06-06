@@ -1,0 +1,37 @@
+﻿@model List<VolunteerOrganizer.Data.Model.User_Event>
+
+
+
+<h1>Message Sent</h1>
+
+<p>A text message has been sent to the following volunteers.</p>
+
+<p>Please, click <strong>confirm</strong> on any volunteer to continue.</p>
+
+<div class="well">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Volunteer</th>
+                <th>Contact Number</th>
+                <th>Contacted</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.user.FirstName</td>
+                    <td>@item.user.ContactNumber</td>
+                   <td>Contacted</td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+</div>

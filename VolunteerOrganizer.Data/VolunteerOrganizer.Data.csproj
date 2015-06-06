@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A13032C-3642-466D-8D68-CF2E92457B37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VolunteerOrganizer.Data</RootNamespace>
+    <AssemblyName>VolunteerOrganizer.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201501102006580_First_Migration.cs" />
+    <Compile Include="Migrations\201501102006580_First_Migration.Designer.cs">
+      <DependentUpon>201501102006580_First_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501111838071_Third_Migration.cs" />
+    <Compile Include="Migrations\201501111838071_Third_Migration.Designer.cs">
+      <DependentUpon>201501111838071_Third_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501111934135_ApplicationUser_Update.cs" />
+    <Compile Include="Migrations\201501111934135_ApplicationUser_Update.Designer.cs">
+      <DependentUpon>201501111934135_ApplicationUser_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501112022287_Edit EventUsers.cs" />
+    <Compile Include="Migrations\201501112022287_Edit EventUsers.Designer.cs">
+      <DependentUpon>201501112022287_Edit EventUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501121818200_ApplicationUser_Update1.cs" />
+    <Compile Include="Migrations\201501121818200_ApplicationUser_Update1.Designer.cs">
+      <DependentUpon>201501121818200_ApplicationUser_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501121843060_Event_Update.cs" />
+    <Compile Include="Migrations\201501121843060_Event_Update.Designer.cs">
+      <DependentUpon>201501121843060_Event_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501151015055_Account_Controller.cs" />
+    <Compile Include="Migrations\201501151015055_Account_Controller.Designer.cs">
+      <DependentUpon>201501151015055_Account_Controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VolunteerOrganizer.Data.Model\VolunteerOrganizer.Data.Model.csproj">
+      <Project>{7722e43f-f2f8-4509-ada6-09a932caba04}</Project>
+      <Name>VolunteerOrganizer.Data.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501102006580_First_Migration.resx">
+      <DependentUpon>201501102006580_First_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501111838071_Third_Migration.resx">
+      <DependentUpon>201501111838071_Third_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501111934135_ApplicationUser_Update.resx">
+      <DependentUpon>201501111934135_ApplicationUser_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501112022287_Edit EventUsers.resx">
+      <DependentUpon>201501112022287_Edit EventUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501121818200_ApplicationUser_Update1.resx">
+      <DependentUpon>201501121818200_ApplicationUser_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501121843060_Event_Update.resx">
+      <DependentUpon>201501121843060_Event_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501151015055_Account_Controller.resx">
+      <DependentUpon>201501151015055_Account_Controller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

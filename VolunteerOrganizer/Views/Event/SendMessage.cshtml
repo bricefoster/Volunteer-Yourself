@@ -1,0 +1,34 @@
+﻿@model List<VolunteerOrganizer.Data.Model.User_Event>
+
+<h1>Your event has been canceled</h1>
+
+<p>A text message has been sent to the following volunteers informing them the event has been canceled.</p>
+
+<p>Please, click <strong>sent</strong> on any volunteer to continue.</p>
+
+<div class="well">
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Volunteer</th>
+            <th>Contact Number</th>
+            <th>Contacted</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.user.FirstName</td>
+                <td>@item.user.ContactNumber</td>
+                <td><a href="/Event/DeleteEvent/@item.EventId" class="btn btn-danger">Sent</a></td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+    </div>

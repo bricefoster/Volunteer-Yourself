@@ -1,0 +1,52 @@
+﻿@model List<VolunteerOrganizer.Data.Model.User_Event>
+
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+        <div class="navbar-inner">
+            <div id="button1">@Html.ActionLink("Home", "OrganizationHome", "Organization")</div>
+            @using Microsoft.AspNet.Identity
+            @using System.Security.Claims
+            @if (Request.IsAuthenticated)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var name = identity.FindFirstValue(ClaimTypes.GivenName) ?? identity.GetUserName();
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div>
+                        <div id="button2">
+                         
+                        </div>
+                        <div id="button3"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div id="button2">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+                <div id="button3">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<div id="myOrg">
+
+
+    <h1>Volunteers</h1>
+
+
+@foreach (var item in Model)
+{
+    <div class="well">
+
+        <p><strong>First Name:</strong> @item.user.FirstName</p>
+        <p><strong>Last Name:</strong> @item.user.LastName</p>
+        <p><strong>Contact Number:</strong> @item.user.ContactNumber</p>
+    </div>
+}
+
+</div>
