@@ -28,10 +28,13 @@ namespace VolunteerOrganizer.Data.Migrations
                         Info = c.String(),
                         IsDeleted = c.Boolean(nullable: false),
                         OrganizationId = c.Int(nullable: false),
+                        user_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.EventId)
                 .ForeignKey("dbo.Organizations", t => t.OrganizationId, cascadeDelete: true)
-                .Index(t => t.OrganizationId);
+                .ForeignKey("dbo.AspNetUsers", t => t.user_Id)
+                .Index(t => t.OrganizationId)
+                .Index(t => t.user_Id);
             
             CreateTable(
                 "dbo.Organizations",
@@ -52,6 +55,10 @@ namespace VolunteerOrganizer.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        ContactNumber = c.String(),
+                        TypeOfUser = c.String(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -136,6 +143,7 @@ namespace VolunteerOrganizer.Data.Migrations
             DropForeignKey("dbo.User_Event", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.User_Event", "EventId", "dbo.Events");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Events", "user_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Organizations", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
@@ -150,6 +158,7 @@ namespace VolunteerOrganizer.Data.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Organizations", new[] { "ApplicationUserId" });
+            DropIndex("dbo.Events", new[] { "user_Id" });
             DropIndex("dbo.Events", new[] { "OrganizationId" });
             DropTable("dbo.User_Event");
             DropTable("dbo.AspNetRoles");

@@ -46,8 +46,14 @@ namespace VolunteerOrganizer.Data
             {
                 ApplicationUser user = new ApplicationUser()
                 {
+                    FirstName = "Sky",
+                    LastName = "Bell",
+                    ContactNumber = "832-692-3247",
                     UserName = "sky@email.com",
-                    Email = "sky@email.com"
+                    Email = "sky@email.com",
+                    Id = "1111",
+                    TypeOfUser = "Organizer"
+                       
                 };
                 manager.Create(user, "123123");
                 manager.AddToRole(user.Id, "User");
@@ -56,8 +62,14 @@ namespace VolunteerOrganizer.Data
             {
                 ApplicationUser user = new ApplicationUser()
                 {
+                    FirstName = "Brice",
+                    LastName = "Foster",
+                    ContactNumber = "832-692-3247",
                     UserName = "brice@email.com",
-                    Email = "brice@email.com"
+                    Email = "brice@email.com",
+                    Id = "2222",
+                    TypeOfUser = "Organizer"
+                   
 
                 };
                 manager.Create(user, "123123");
@@ -67,8 +79,14 @@ namespace VolunteerOrganizer.Data
             {
                 ApplicationUser user = new ApplicationUser()
                 {
+                    FirstName = "Cherish",
+                    LastName = "Bell",
+                    ContactNumber = "832-692-3247",
                     UserName = "cherish@email.com",
-                    Email = "cherish@email.com"
+                    Email = "cherish@email.com",
+                    Id = "3333",
+                    TypeOfUser = "Organizer"
+                   
                 };
                 manager.Create(user, "123123");
                 manager.AddToRole(user.Id, "User");
@@ -82,21 +100,28 @@ namespace VolunteerOrganizer.Data
                 {
                     OrganizationName = "Feed Hunger",
                     OrganizationPicture = "http://images.cdn.bigcartel.com/bigcartel/theme_images/668721/max_h-1000+max_w-1000/Untitled-1.jpg",
-                    OrganizationAbout = "We feed hungry children in the Houston Area."
+                    OrganizationAbout = "We feed hungry children in the Houston Area.",
+                    OrganizationId = 1,
+                    ApplicationUserId = "1111"
                    
                 },
                 new Organization()
                 {
                     OrganizationName = "Coding Kids",
                     OrganizationPicture = "http://airskull.com/wp-content/uploads/2014/02/kidsthatcodelarge.png",
-                    OrganizationAbout = "Helping kids learn to Code."
+                    OrganizationAbout = "Helping kids learn to Code.",
+                    OrganizationId = 2,
+                    ApplicationUserId = "2222"
                    
                 },
+                
                 new Organization()
                 {
                     OrganizationName = "Soldiers are Us",
                     OrganizationPicture = "http://archive.wtsp.com/assetpool/images/110215042559_soldier%20ride%20web%202.jpg",
                     OrganizationAbout = "Giving soldier a shoulder to lean on when they get back home",
+                    OrganizationId = 3,
+                    ApplicationUserId = "3333"
                     
                 });
             db.SaveChanges();
@@ -121,7 +146,8 @@ namespace VolunteerOrganizer.Data
                     ContactNumber = "444-444-4444",
                     Info = "Email mike if you have to cannot make it on the day of event",
                     IsDeleted = false,
-                    OrganizationId = 1
+                    OrganizationId = 1,
+                    EventId = 1
                 },
 
                 new Event()
@@ -141,7 +167,8 @@ namespace VolunteerOrganizer.Data
                     ContactNumber = "555-555-5555",
                     Info = "The room will be 500",
                     IsDeleted = false,
-                    OrganizationId = 2
+                    OrganizationId = 2,
+                    EventId = 2
                 },
 
                 new Event()
@@ -161,7 +188,8 @@ namespace VolunteerOrganizer.Data
                     ContactNumber = "777-777-7777",
                     Info = "A bus will be leaving from base at 6:00am sharp",
                     IsDeleted = false,
-                    OrganizationId = 3
+                    OrganizationId = 3,
+                    EventId = 3
                 });
             db.SaveChanges();
         }
@@ -169,9 +197,9 @@ namespace VolunteerOrganizer.Data
         public static void SeedUserEvents(ApplicationDbContext db)
         {
             db.User_Events.AddOrUpdate(x => x.User_EventId,
-                new User_Event() { EventId = 1, ApplicationUserId = "2642d590-cc9e-44f3-adfb-b854c156ec40" },
-                new User_Event() { EventId = 2, ApplicationUserId = "54bd49a6-8f08-42a2-8864-b7954018ad17" },
-                new User_Event() { EventId = 3, ApplicationUserId = "766ad1d9-c572-4b98-a4d6-12e57abb6c01" });
+                new User_Event() { EventId = 1, ApplicationUserId = "1111" },
+                new User_Event() { EventId = 2, ApplicationUserId = "2222" },
+                new User_Event() { EventId = 3, ApplicationUserId = "3333" });
             db.SaveChanges();
         }
 

@@ -7,13 +7,13 @@ namespace VolunteerOrganizer.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class ApplicationUser_Update1 : IMigrationMetadata
+    public sealed partial class First_Migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplicationUser_Update1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(First_Migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201501121818200_ApplicationUser_Update1"; }
+            get { return "201506061900242_First_Migration"; }
         }
         
         string IMigrationMetadata.Source

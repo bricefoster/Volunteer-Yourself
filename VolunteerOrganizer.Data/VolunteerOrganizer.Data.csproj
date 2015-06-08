@@ -53,33 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201501102006580_First_Migration.cs" />
-    <Compile Include="Migrations\201501102006580_First_Migration.Designer.cs">
-      <DependentUpon>201501102006580_First_Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501111838071_Third_Migration.cs" />
-    <Compile Include="Migrations\201501111838071_Third_Migration.Designer.cs">
-      <DependentUpon>201501111838071_Third_Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501111934135_ApplicationUser_Update.cs" />
-    <Compile Include="Migrations\201501111934135_ApplicationUser_Update.Designer.cs">
-      <DependentUpon>201501111934135_ApplicationUser_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501112022287_Edit EventUsers.cs" />
-    <Compile Include="Migrations\201501112022287_Edit EventUsers.Designer.cs">
-      <DependentUpon>201501112022287_Edit EventUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501121818200_ApplicationUser_Update1.cs" />
-    <Compile Include="Migrations\201501121818200_ApplicationUser_Update1.Designer.cs">
-      <DependentUpon>201501121818200_ApplicationUser_Update1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501121843060_Event_Update.cs" />
-    <Compile Include="Migrations\201501121843060_Event_Update.Designer.cs">
-      <DependentUpon>201501121843060_Event_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501151015055_Account_Controller.cs" />
-    <Compile Include="Migrations\201501151015055_Account_Controller.Designer.cs">
-      <DependentUpon>201501151015055_Account_Controller.cs</DependentUpon>
+    <Compile Include="Migrations\201506061900242_First_Migration.cs" />
+    <Compile Include="Migrations\201506061900242_First_Migration.Designer.cs">
+      <DependentUpon>201506061900242_First_Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,26 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501102006580_First_Migration.resx">
-      <DependentUpon>201501102006580_First_Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501111838071_Third_Migration.resx">
-      <DependentUpon>201501111838071_Third_Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501111934135_ApplicationUser_Update.resx">
-      <DependentUpon>201501111934135_ApplicationUser_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501112022287_Edit EventUsers.resx">
-      <DependentUpon>201501112022287_Edit EventUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501121818200_ApplicationUser_Update1.resx">
-      <DependentUpon>201501121818200_ApplicationUser_Update1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501121843060_Event_Update.resx">
-      <DependentUpon>201501121843060_Event_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501151015055_Account_Controller.resx">
-      <DependentUpon>201501151015055_Account_Controller.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506061900242_First_Migration.resx">
+      <DependentUpon>201506061900242_First_Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

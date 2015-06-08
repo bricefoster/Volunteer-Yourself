@@ -15,7 +15,7 @@ namespace VolunteerOrganizer.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<User_Event> User_Events { get; set; }
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SQLAzureConnection", throwIfV1Schema: false)
         {
         }
 
