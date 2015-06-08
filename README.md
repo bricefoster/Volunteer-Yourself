@@ -1,0 +1,2 @@
+# Volunteer-Yourself
+This MVC application utilizes C#, Razor, SQL, HTML, CSS, Bootstrap, LINQ, ASP.NET, and the Twilio REST API to allow organizations to post events that they need volunteers for and allows individuals to volunteer for those events. Volunteers can keep track of their events when they login and organizations can keep track of both events and volunteers. The Twilio REST API gives the organizations the ability to send out a text message to all the individuals volunteering for their event.
