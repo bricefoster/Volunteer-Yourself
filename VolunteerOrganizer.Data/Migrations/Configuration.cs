@@ -14,7 +14,7 @@ namespace VolunteerOrganizer.Data.Migrations
 
         protected override void Seed(VolunteerOrganizer.Data.ApplicationDbContext context)
         {
-            Seeder.Seed(context, true, true, false, false, false);
+            Seeder.Seed(context, true, true, true, true, true);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
